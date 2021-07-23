@@ -75,35 +75,10 @@ public class IdleHandlerSampleActivity extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 //        Toast.makeText(this, "I am in onKeyDown...", Toast.LENGTH_SHORT).show();
-
-        {
-            int pendingIdleHandlerCount = mIdleHandlers.size();
-
-            if (mPendingIdleHandlers == null) {
-                mPendingIdleHandlers = new MessageQueue.IdleHandler[Math.max(pendingIdleHandlerCount, 4)];
-            }
-            mPendingIdleHandlers = mIdleHandlers.toArray(mPendingIdleHandlers);
-
-            // Run the idle handlers.
-            // We only ever reach this code block during the first iteration.
-            for (int i = 0; i < pendingIdleHandlerCount; i++) {
-                final MessageQueue.IdleHandler idler = mPendingIdleHandlers[i];
-                mPendingIdleHandlers[i] = null; // release the reference to the handler
-
-                boolean keep = false;
-                try {
-                    keep = idler.queueIdle();
-                } catch (Throwable t) {
-//                    Log.wtf(TAG, "IdleHandler threw exception", t);
-                }
-
-                if (!keep) {
-                    synchronized (this) {
-                        mIdleHandlers.remove(idler);
-                    }
-                }
-            }
+        if (keyCode == KeyEvent.KEYCODE_F5 || keyCode == KeyEvent.KEYCODE_F6) {
+            Toast.makeText(this, "You press key " + keyCode, Toast.LENGTH_SHORT).show();
         }
+
         return super.onKeyDown(keyCode, event);
     }
 

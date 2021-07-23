@@ -11,10 +11,13 @@
         android:theme="@style/Theme.AccessibilityServiceSample">
         <activity android:name="com.cw.IdleHandlerSampleActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="com.cw.action.main" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
 
         <service
@@ -37,8 +40,12 @@
 
             <intent-filter>
                 <action android:name="com.cw.action.main" />
-
                 <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
