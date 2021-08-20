@@ -122,6 +122,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // 获取app UID方法二
         uid = android.os.Process.myUid();
         Log.i(TAG, "android.os.Process.myUid(): " + uid);
+
+//        testCallerPackageName();
+    }
+
+    private void testCallerPackageName() {
+        int pid = android.os.Process.myPid();
+
+        Log.d(TAG, "onCreate: get package name method1 : "
+                + CallerUtils.getPackageNameFromPid(this, pid));
+        Log.d(TAG, "onCreate: get package name metho2 : "
+                + CallerUtils.getPackageNameFromPid(pid));
     }
 
     @Override
